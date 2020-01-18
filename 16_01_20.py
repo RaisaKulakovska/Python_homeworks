@@ -29,7 +29,7 @@ def connverter():
             inch_to_sm()
             exit                
         elif choice==2:
-            inch_to_sm()
+            sm_to_inch()
             exit                
         elif choice==3:
             exit            
@@ -42,12 +42,12 @@ def connverter():
     
 def inch_to_sm():
     inch=int(input("Enter inch: "))
-    result=inch*2.54
-    print(result, " sm \n")
+    result=round(inch*2.54, 1)
+    print(inch, "inch=", result, "sm \n")
 
-def inch_to_sm():
+def sm_to_inch():
     sm=int(input("Enter sm: "))
-    result=sm/2.54
-    print(result, "inch \n") 
+    result=round(sm/2.54, 1)
+    print(sm,"sm=", result, "inch \n") 
 
 connverter()
