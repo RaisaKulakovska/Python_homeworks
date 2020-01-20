@@ -46,42 +46,45 @@ def speed():
 
 # ----------------------Ex 4----------------------
 from random import randint
-N = int(input("enter N: "))
-plaing = True
-my_total_score = 0
-pc_total_score = 0
-while plaing:
-    input("My turn: ")
-    rand_my_1 = randint(1, 6)
-    rand_my_2 = randint(1, 6)
-    print(rand_my_1)    
-    print(rand_my_2)
-    my_score = rand_my_1 + rand_my_2
-    if rand_my_1 == rand_my_2:
-        my_total_score += 2
-    print("my_score: ", my_score)
-    input("PC turn")
+def game():
+    """Play with dice, eatch player throws 2 dice, if they are the same, +2 points"""
+    N = int(input("enter N (to which to whsch account the game lasts): \n"))
+    plaing = True
+    my_total_score = 0
+    pc_total_score = 0
+    while plaing:       
+        input("Your turn:")
+        rand_my_1 = randint(1, 6)
+        rand_my_2 = randint(1, 6)
+        print(rand_my_1)    
+        print(rand_my_2)
+        my_score = rand_my_1 + rand_my_2
+        if rand_my_1 == rand_my_2:
+            my_total_score += 2
+            print("Double! Your got +2 points")           
+        input("PC turn")
+        rand_pc_1 = randint(1, 6)
+        print(rand_pc_1)
+        rand_pc_2 = randint(1, 6)
+        print(rand_pc_2)
+        pc_score = rand_pc_1 + rand_pc_2
+        if rand_pc_1 == rand_pc_2:
+            pc_total_score += 2
+            print("Double! Computer got +2 points")        
+        
+        if my_score > pc_score:
+            my_total_score +=1
+        elif pc_score > my_score:
+            pc_total_score +=1
+        print("Total score: Your:",my_total_score, " PC:", pc_total_score, "\n")
 
-    rand_pc_1 = randint(1, 6)
-    print(rand_pc_1)
-    rand_pc_2 = randint(1, 6)
-    print(rand_pc_2)
-    pc_score = rand_pc_1 + rand_pc_2
-    if rand_pc_1 == rand_pc_2:
-        pc_total_score += 2
-    print("pc_score: ", pc_score)  
-    
-    if my_score > pc_score:
-        my_total_score +=1
-    elif pc_score > my_score:
-        pc_total_score +=1
-    print("Score: My:",my_total_score, " PC:", pc_total_score)
+        if my_total_score >= N or pc_total_score >= N:
+            plaing = False
+            if my_total_score > pc_total_score:
+                print("You win!\n")    
+            elif pc_total_score > my_total_score:
+                print("Computer win!\n")
+            elif my_total_score == pc_total_score:
+                print("Dead heat!\n")
+game()
 
-if my_total_score >= N or pc_total_score >= N:
-    plaing = False
-    if my_total_score > pc_total_score:
-        print("You win!")    
-    elif pc_total_score > my_total_score:
-        print("Computer win!")
-    elif my_total_score == pc_total_score:
-        print("Dead heat!")
