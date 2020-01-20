@@ -1,5 +1,5 @@
-# --------------Ex1-----------------
 def part_of_day():
+    """Take hour and return a part of day."""
     hour=int(input("Enter a hour from 0 to 24\n"))
 
     if hour>=6 and hour<12:
@@ -17,8 +17,8 @@ def part_of_day():
         print("Enter a number from 0 to 24")         
 part_of_day() 
 
-# --------------Ex2-----------------
 def connverter():
+    """Convert inch to sm and sm to inch"""
     print("\n Hello! What do you want to convert?\n Enter 1, 2 or 3 \n")
     print("1. Convert inch to sm")
     print("2. Convert sm to inch")
