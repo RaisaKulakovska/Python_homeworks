@@ -1,6 +1,6 @@
 # with open ("list_hw.py", "w") as list_homework:
 #     list_homework.write(
-    
+
 #-----------1v------------
 list1 = [2,1,17,65,3,85,14,]
 print(list1)
