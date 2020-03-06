@@ -23,8 +23,15 @@ def dbf_manager():
 
         elif choice == 3:
             res = manager.select_by_city()
-            for item in res:
-                print(item)
+            if res:
+                for item in res:
+                    print(item)
+            elif not res: 
+                choise = print("There is not such city in db! \nPress: \n1. Add city into db \n2. Exit ")
+                if choise == 1:
+                    manager.insert_data_into_db()
+                if choise == 2:
+                    exit = True
 
         elif choice == 4:
             res = manager.select_by_street()
